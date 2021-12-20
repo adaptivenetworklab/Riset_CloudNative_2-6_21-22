@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: posts
-          image: gilangvperdana/research:postsv1
+          image: adaptivenetlab/research:posts
 ---
 apiVersion: v1
 kind: Service

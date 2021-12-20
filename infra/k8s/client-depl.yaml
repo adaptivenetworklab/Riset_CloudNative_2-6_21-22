@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: gilangvperdana/research:clientv1
+          image: adaptivenetlab/research:client
 ---
 apiVersion: v1
 kind: Service
