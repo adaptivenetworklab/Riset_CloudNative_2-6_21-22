@@ -8,11 +8,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongo-comments
+      app: mongo-client-comments
   template:
     metadata:
       labels:
-        app: mongo-comments
+        app: mongo-client-comments
     spec:
       containers:
       - image: mongo
