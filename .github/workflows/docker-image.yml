@@ -24,7 +24,7 @@ jobs:
       with :
         push: true
         dockerfile: ./client/Dockerfile
-        repository: Riset-MicroServices/client/
+        repository: ./client/
         tags: adaptivenetlab/research:client
 
     - name: Build & Push Comments
@@ -33,7 +33,7 @@ jobs:
       with :
         push: true
         dockerfile: ./comments/Dockerfile
-        repository: Riset-MicroServices/comments/
+        repository: ./comments/
         tags: adaptivenetlab/research:comments
         
     - name: Build & Push Posts
@@ -42,5 +42,5 @@ jobs:
       with :
         push: true
         dockerfile: ./posts/Dockerfile
-        repository: Riset-MicroServices/posts/
+        repository: ./posts/
         tags: adaptivenetlab/research:posts
