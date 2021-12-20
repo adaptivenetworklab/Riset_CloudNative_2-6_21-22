@@ -8,7 +8,7 @@ export default () => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        await axios.post('http://posts.com/posts', {
+        await axios.post(`${process.env.REACT_APP_POST_BASE_URL}/posts`, {
             title
         });
         setTitle('');

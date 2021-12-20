@@ -6,7 +6,7 @@ export default ({postId}) => {
     const [comments, setComments] = useState([]);
 
     const fetchData = async () => {
-        const res = await axios.get(`http://posts.com/posts/${postId}/comments`);
+        const res = await axios.get(`${process.env.REACT_APP_COMMENT_BASE_URL}/posts/${postId}/comments`);
         console.log("getting comments data ... ", res.data.data)
         setComments(res.data.data);
     };

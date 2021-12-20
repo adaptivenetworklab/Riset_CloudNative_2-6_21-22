@@ -1,13 +1,12 @@
 /* eslint-disable no-console */
-// const connectionString = `mongodb://${process.env.MONGO_ROOT_USERNAME}:${process.env.MONGO_ROOT_PASSWORD}@${process.env.DB_HOST}`;
 
 const mongoose = require('mongoose');
 
 module.exports = async () => {
-  const connectionString = 'mongodb://adminuser:password123@mongo-posts-clusterip-srv.postsapp.svc.cluster.local:27017';
+  const connectionString = `mongodb://${process.env.MONGO_ROOT_USERNAME}:${process.env.MONGO_ROOT_PASSWORD}@${process.env.DB_HOST}`;
   try {
     const conct = await mongoose.connect(connectionString, {
-      dbName: 'posts',
+      dbName: process.env.DB_NAME,
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

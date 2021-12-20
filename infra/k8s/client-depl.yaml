@@ -15,6 +15,13 @@ spec:
       containers:
         - name: client
           image: adaptivenetlab/research:client
+          env:
+          - name: REACT_APP_NODE_ENV
+            value: 'Kubernetes Environment'
+          - name: REACT_APP_POST_BASE_URL
+            value: 'posts-clusterip-srv.postsapp.svc.cluster.local'
+          - name: REACT_APP_COMMENT_BASE_URL
+            value: 'comments-srv.postsapp.svc.cluster.local'
 ---
 apiVersion: v1
 kind: Service

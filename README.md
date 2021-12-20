@@ -9,13 +9,45 @@ Mini MicroServices App with ReactJS for Frontend & NodeJS for Backend.
 ./posts is NodeJS for Backend Posts Service. Running on Port 4000
 ./comments is NodeJS for Backend Comments Service. Running on Port 4001
 ```
+## Environtment Variable
+### create your .env.NODE_ENV in all service
+copy from .env.example 
+```
+cp .env.example .env.dev
+# Note that dev is our NODE_ENV value
+```
+### .env.dev ( for posts and comments service)
+```
+PORT = 4000
+MESSAGE='This is development environment!'
 
-## To Getting Start ?
+# MONGODB
+
+MONGO_ROOT_USERNAME='root'
+MONGO_ROOT_PASSWORD='nathan123'
+DB_HOST='localhost'
+DB_NAME='posts'
+```
+
+### .env.dev ( for client service)
+```
+REACT_APP_NODE_ENV='Development Environment'
+REACT_APP_POST_BASE_URL='http://localhost:4000'
+REACT_APP_COMMENT_BASE_URL='http://localhost:4001'
+```
+
+
+## To Getting Start ( Dev Environment ) ?
+### Posts and Comments Service
 ```
 $ npm install
-$ npm start
+$ NODE_ENV=dev npm start
 ```
-
+### Client Service
+```
+$ npm install
+$ npm run start:dev
+```
 ## To Containerization ?
 ```
 $ docker build -t image_name .

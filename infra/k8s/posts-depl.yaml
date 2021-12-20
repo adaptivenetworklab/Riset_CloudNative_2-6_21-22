@@ -15,6 +15,26 @@ spec:
       containers:
         - name: posts
           image: adaptivenetlab/research:posts
+          env:
+          - name: MESSAGE
+            value: 'This is Kubernetes Environment!'
+          - name: PORT
+            value: "4000"
+          ## MONGO DB ENVIRONMENT
+          - name: MONGO_ROOT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-creds
+                key: user
+          - name: MONGO_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-creds
+                key: password
+          - name: DB_HOST
+            value: mongo-posts-clusterip-srv.postsapp.svc.cluster.local
+          - name: DB_NAME
+            value: posts
 ---
 apiVersion: v1
 kind: Service

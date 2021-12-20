@@ -8,7 +8,7 @@ export default ({ postId }) =>{
     const onSubmit = async (event) => {
         event.preventDefault();
 
-        await axios.post(`http://posts.com/posts/${postId}/comments`, {
+        await axios.post(`${process.env.REACT_APP_COMMENT_BASE_URL}/posts/${postId}/comments`, {
             content
         });
 

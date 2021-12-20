@@ -8,7 +8,8 @@ export default() => {
     const [posts, setPosts] = useState({});
 
     const fetchFost = async () => {
-        const res = await axios.get('http://posts.com/posts');
+        console.log(process.env.REACT_APP_NODE_ENV); // CHECK NODE ENVIRONMENT
+        const res = await axios.get(`${process.env.REACT_APP_POST_BASE_URL}/posts`);
         console.log("getting post data ... ", res.data.data)
         setPosts(res.data.data)
     }
