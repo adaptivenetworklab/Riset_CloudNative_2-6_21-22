@@ -4,7 +4,7 @@
 const mongoose = require('mongoose');
 
 module.exports = async () => {
-  const connectionString = 'mongodb://adminuser:password123@10.108.243.230:27017';
+  const connectionString = 'mongodb://adminuser:password123@mongo-comments-clusterip-srv.postsapp.svc.cluster.local:27018';
   try {
     const conct = await mongoose.connect(connectionString, {
       dbName: 'comments',
