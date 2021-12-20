@@ -1,13 +1,8 @@
-FROM node
+FROM node:alpine
 
-WORKDIR /app/comments
-
-COPY package.json .
-
+WORKDIR /app
+COPY package.json ./
 RUN npm install
+COPY ./ ./
 
-COPY . . 
-
-EXPOSE 4001
-
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
