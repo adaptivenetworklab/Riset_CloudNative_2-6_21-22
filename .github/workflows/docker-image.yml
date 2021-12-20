@@ -23,8 +23,7 @@ jobs:
       uses : docker/build-push-action@v2
       with :
         push: true
-        file: ./client/Dockerfile
-        context: ./client/
+        context: ./client
         tags: adaptivenetlab/research:client
 
     - name: Build & Push Comments
@@ -32,8 +31,7 @@ jobs:
       uses : docker/build-push-action@v2
       with :
         push: true
-        file: ./comments/Dockerfile
-        context: ./comments/
+        context: ./comments
         tags: adaptivenetlab/research:comments
         
     - name: Build & Push Posts
@@ -41,6 +39,5 @@ jobs:
       uses : docker/build-push-action@v2
       with :
         push: true
-        file: ./posts/Dockerfile
-        context: ./posts/
+        context: ./posts
         tags: adaptivenetlab/research:posts
