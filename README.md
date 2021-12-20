@@ -25,6 +25,15 @@ $ docker build -t image_name .
 ```
 $ cd infra/k8s
 $ kubectl apply -f . -n postsapp
+
+$ cd MongoDB
+$ kubectl apply -f . -n postsapp
+
+$ cd MongoDB-posts
+$ kubectl apply -f . -n postsapp
+
+$ cd MongoDB-comments
+$ kubectl apply -f . -n postsapp
 ```
 
 ## Installing (Istio, Grafana) :
