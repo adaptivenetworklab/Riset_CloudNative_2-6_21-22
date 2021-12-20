@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-posts-clusterip-srv
+spec:
+  selector:
+    app: mongo-posts
+  ports:
+    - name: mongo-posts
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

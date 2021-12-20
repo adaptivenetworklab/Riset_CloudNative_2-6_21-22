@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mongo-client-comments
+  name: mongo-client-comments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-comments
+  template:
+    metadata:
+      labels:
+        app: mongo-comments
+    spec:
+      containers:
+      - image: mongo
+        name: mongo-client-comments
+        env:
+        - name: mongo-client_INITDB_ROOT_USERNAME
+          value: 'dummy'
+        - name: mongo-client_INITDB_ROOT_PASSWORD
+          value: 'dummy'

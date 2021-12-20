@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mongo-client-posts
+  name: mongo-client-posts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-client-posts
+  template:
+    metadata:
+      labels:
+        app: mongo-client-posts
+    spec:
+      containers:
+      - image: mongo
+        name: mongo-client-posts
+        env:
+        - name: mongo-client_INITDB_ROOT_USERNAME
+          value: 'dummy'
+        - name: mongo-client_INITDB_ROOT_PASSWORD
+          value: 'dummy'
