@@ -23,7 +23,7 @@ jobs:
       uses : docker/build-push-action@v2
       with :
         push: true
-        context: Riset-MicroServices/client/
+        repository: Riset-MicroServices/client/
         tags: adaptivenetlab/research:client
 
     - name: Build & Push Comments
@@ -39,5 +39,5 @@ jobs:
       uses : docker/build-push-action@v2
       with :
         push: true
-        context: Riset-MicroServices/posts/
+        repository: Riset-MicroServices/posts/
         tags: adaptivenetlab/research:posts
