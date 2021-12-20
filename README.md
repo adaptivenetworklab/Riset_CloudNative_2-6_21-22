@@ -66,7 +66,7 @@ $ http://<ip-external-service-grafana>:3000
 $ cd istio-1.12.1
 $ kubectl apply -f samples/addons/kiali.yaml
 
-Ubah service ke LoadBalancer:
+Change service to LoadBalancer:
 $ kubectl edit svc kiali -n istio-system
 $ kubectl get svc kiali -n istio-system
 http://ip_external_kiali:20001
