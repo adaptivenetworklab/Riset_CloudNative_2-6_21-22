@@ -1,4 +1,4 @@
-name: MicroSvcCICD-BrachK8sScratch
+name: MicroSvcCICD-BranchK8sScratch
 
 on:
   push:
