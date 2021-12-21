@@ -1,6 +1,7 @@
 ## Riset Microservice Service Mesh
 
 ```
+This Docker Image contains "k8s" tag.
 Mini MicroServices App with ReactJS for Frontend & NodeJS for Backend.
 ```
 
