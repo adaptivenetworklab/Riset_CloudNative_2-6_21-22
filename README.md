@@ -55,6 +55,8 @@ $ docker build -t image_name .
 
 ## Deploy on K8s Cluster ?
 ```
+$ kubectl create ns postsapp
+
 $ cd infra/k8s
 $ kubectl apply -f . -n postsapp
 
