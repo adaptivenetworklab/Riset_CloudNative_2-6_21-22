@@ -30,7 +30,7 @@ jobs:
         push: true
         file: ./client/Dockerfile
         context: ./client
-        tags: adaptivenetlab/research:clientv1
+        tags: adaptivenetlab/research:clientv2
 
     - name: Build & Push Comments
       id : docker_build2
@@ -39,7 +39,7 @@ jobs:
         push: true
         file: ./comments/Dockerfile
         context: ./comments
-        tags: adaptivenetlab/research:commentsv1
+        tags: adaptivenetlab/research:commentsv2
         
     - name: Build & Push Posts
       id : docker_build3
@@ -48,4 +48,4 @@ jobs:
         push: true
         file: ./posts/Dockerfile
         context: ./posts
-        tags: adaptivenetlab/research:postsv1
+        tags: adaptivenetlab/research:postsv2

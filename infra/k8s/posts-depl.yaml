@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: posts
-          image: adaptivenetlab/research:posts
+          image: adaptivenetlab/research:postsv2
           env:
           - name: MESSAGE
             value: 'This is Kubernetes Environment!'
@@ -24,12 +24,12 @@ spec:
           - name: MONGO_ROOT_USERNAME
             valueFrom:
               secretKeyRef:
-                name: mongodb-creds
-                key: user
+                name: mongo-creds
+                key: username
           - name: MONGO_ROOT_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: mongodb-creds
+                name: mongo-creds
                 key: password
           - name: DB_HOST
             value: mongo-posts-clusterip-srv.postsapp.svc.cluster.local
