@@ -132,7 +132,7 @@ kubectl label ns postsapp istio-injection=enabled
 ## Microservice Deployment
 ### MongoDB
 ```bash
-kubectl apply -f MongoDB/mongodb-secret.yaml -n postsapp
+kubectl apply -f MongoDB/mongodb-secrets.yaml -n postsapp
 ```
 #### Mongo Posts
 ```bash
