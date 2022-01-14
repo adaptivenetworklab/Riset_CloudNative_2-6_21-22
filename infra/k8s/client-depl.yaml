@@ -15,6 +15,9 @@ spec:
       containers:
         - name: client
           image: adaptivenetlab/research:clientv2
+          resources:
+            requests:
+              cpu: 500m
           env:
           - name: REACT_APP_NODE_ENV
             value: 'Kubernetes Environment'
