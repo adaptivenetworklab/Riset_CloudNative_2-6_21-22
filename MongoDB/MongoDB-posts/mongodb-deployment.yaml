@@ -16,7 +16,7 @@ spec:
         app: mongo-posts
     spec:
       containers:
-      - image: mongo
+      - image: mongo:4.4.6
         name: mongo-posts
         args: ["--dbpath","/data/db"]
         livenessProbe:

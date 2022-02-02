@@ -16,9 +16,9 @@ spec:
         app: mongo-comments
     spec:
       containers:
-      - image: mongo
+      - image: mongo:4.4.6
         name: mongo-comments
-        args: ["--dbpath","/data/db2"]
+        args: ["--dbpath","/data/db"]
         livenessProbe:
           exec:
             command:
@@ -56,7 +56,7 @@ spec:
               key: password
         volumeMounts:
         - name: "mongo-data-dir-comments"
-          mountPath: "/data/db2"
+          mountPath: "/data/db"
       volumes:
       - name: "mongo-data-dir-comments"
         persistentVolumeClaim:
