@@ -1,0 +1,74 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: microsvcapp-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPs
+    tls:
+      mode: SIMPLE
+      credentialName: post-credential
+    hosts: # define domain here
+    - "post.com"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: postsapp
+spec:
+  hosts: # define domain here
+  - "post.com"
+  gateways:
+  - microsvcapp-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: client-srv #nama service cluster IP
+        port:
+          number: 3000
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: postsapp-post
+spec:
+  hosts: # define domain here
+  - "post.com"
+  gateways:
+  - microsvcapp-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /posts
+    route:
+    - destination:
+        host: posts-clusterip-srv #nama service cluster IP
+        port:
+          number: 4000
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: postsapp-comments
+spec:
+  hosts: # define domain here
+  - "post.com"
+  gateways:
+  - microsvcapp-gateway
+  http:
+  - match:
+    - uri:
+        regex: /posts/?(.*)/comments
+    route:
+    - destination:
+        host: comments-srv #nama service cluster IP
+        port:
+          number: 4001
