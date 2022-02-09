@@ -38,25 +38,6 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: postsapp-post
-spec:
-  hosts: # define domain here
-  - "post.com"
-  gateways:
-  - microsvcapp-gateway
-  http:
-  - match:
-    - uri:
-        prefix: /posts
-    route:
-    - destination:
-        host: posts-clusterip-srv #nama service cluster IP
-        port:
-          number: 4000
----
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
   name: postsapp-comments
 spec:
   hosts: # define domain here
@@ -72,3 +53,22 @@ spec:
         host: comments-srv #nama service cluster IP
         port:
           number: 4001
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: postsapp-post
+spec:
+  hosts: # define domain here
+  - "post.com"
+  gateways:
+  - microsvcapp-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /posts
+    route:
+    - destination:
+        host: posts-clusterip-srv #nama service cluster IP
+        port:
+          number: 4000
