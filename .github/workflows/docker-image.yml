@@ -28,6 +28,6 @@ jobs:
       uses : docker/build-push-action@v2
       with :
         push: true
-        file: ./posts/Dockerfile
+        file: ./nuxt-client-apps/Dockerfile
         context: ./nuxt-client-apps
-        tags: adaptivenetlab/research:nuxtv1
+        tags: adaptivenetlab/research:nuxtv2
