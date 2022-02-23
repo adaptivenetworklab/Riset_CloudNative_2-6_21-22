@@ -2,22 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-depl
+  labels:
+    app: client
+    version: v1.0
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: client
+      version: v1.0
   template:
     metadata:
       labels:
         app: client
+        version: v1.0
     spec:
       containers:
         - name: client
           image: adaptivenetlab/research:clientv2
-          resources:
-            requests:
-              cpu: 500m
           env:
           - name: REACT_APP_NODE_ENV
             value: 'Kubernetes Environment'

@@ -1,0 +1,23 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: microsvcapp-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPs
+    tls:
+      mode: SIMPLE
+      credentialName: post-credential
+    hosts: # define domain here
+    - "posts.riset.com"
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts: # define domain here
+    - "posts.riset.com"

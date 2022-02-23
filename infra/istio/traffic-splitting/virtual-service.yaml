@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: frontend-postsapp
+spec:
+  hosts: 
+  - "posts.riset.com"
+  gateways:
+  - microsvcapp-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: client-srv.postsapp.svc.cluster.local
+        port:
+          number: 3000
+        subset: client-v1
+      weight: 0
+    - destination:
+        host: client-srv.postsapp.svc.cluster.local
+        port:
+          number: 3000
+        subset: client-nuxt-v1
+      weight: 100
