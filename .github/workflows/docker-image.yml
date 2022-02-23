@@ -2,9 +2,9 @@ name: MicroSvcCICD
 
 on:
   push:
-    branches: [ master ]
+    branches: [ development ]
   pull_request:
-    branches: [ master ]
+    branches: [ development ]
 
 jobs:
 
@@ -22,30 +22,12 @@ jobs:
       with :
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-    - name: Build & Push Client
-      id : docker_build1
-      uses : docker/build-push-action@v2
-      with :
-        push: true
-        file: ./client/Dockerfile
-        context: ./client
-        tags: adaptivenetlab/research:clientv2
-
-    - name: Build & Push Comments
-      id : docker_build2
-      uses : docker/build-push-action@v2
-      with :
-        push: true
-        file: ./comments/Dockerfile
-        context: ./comments
-        tags: adaptivenetlab/research:commentsv2
         
     - name: Build & Push Posts
-      id : docker_build3
+      id : docker_build_nuxtjs
       uses : docker/build-push-action@v2
       with :
         push: true
         file: ./posts/Dockerfile
-        context: ./posts
-        tags: adaptivenetlab/research:postsv2
+        context: ./nuxt-client-apps
+        tags: adaptivenetlab/research:nuxtv1
