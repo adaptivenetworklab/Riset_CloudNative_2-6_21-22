@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-nuxt-v3
+  labels:
+    app: client
+    version: nuxt-3.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+      version: nuxt-3.0
+  template:
+    metadata:
+      labels:
+        app: client
+        version: nuxt-3.0
+    spec:
+      containers:
+        - name: client
+          image: adaptivenetlab/research:nuxtv1
+          env:
+          - name: POST_BASE_URL
+            value: 'http://posts-clusterip-srv.postsapp:4000'
+          - name: COMMENT_BASE_URL
+            value: 'http://comments-srv.postsapp:4001'
+          - name: POST_ID
+            value: 'none'
