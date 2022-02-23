@@ -214,3 +214,13 @@ access `http://ip_external_kiali:20001`
 ![](docs/img/image8.jpg)
 
 >Happy Exploring!
+
+<br>
+
+# Using and Explore Istio Feature
+for detail, click [here](infra/istio/istio-feature.md)
+```bash
+kubectl apply -f infra/istio/gateway.yaml
+kubectl apply -f infra/istio/destination-rule.yaml
+kubectl apply -f infra/istio/virtual-service.yaml
+```

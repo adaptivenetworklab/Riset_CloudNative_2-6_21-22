@@ -14,10 +14,10 @@ spec:
       mode: SIMPLE
       credentialName: post-credential
     hosts: # define domain here
-    - "posts.riset.com"
+    - "post.com"
   - port:
       number: 80
       name: http
       protocol: HTTP
     hosts: # define domain here
-    - "posts.riset.com"
+    - "post.com"

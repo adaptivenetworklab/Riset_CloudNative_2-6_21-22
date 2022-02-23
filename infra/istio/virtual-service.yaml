@@ -4,7 +4,7 @@ metadata:
   name: frontend-postsapp
 spec:
   hosts: 
-  - "posts.riset.com"
+  - "post.com"
   gateways:
   - microsvcapp-gateway
   http:
@@ -24,3 +24,8 @@ spec:
           number: 3000
         subset: client-nuxt-v1
       weight: 100
+    mirror:
+      host: client-srv.postsapp.svc.cluster.local
+      subset: client-v1
+    mirrorPercentage:
+      value: 100.0
