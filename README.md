@@ -4,6 +4,8 @@
 Mini MicroServices App with ReactJS for Frontend & NodeJS for Backend.
 ```
 
+![](docs/img/image9.png)
+
 ```
 ./client is ReactJS for Frontend. Running on Port 3000
 ./posts is NodeJS for Backend Posts Service. Running on Port 4000
