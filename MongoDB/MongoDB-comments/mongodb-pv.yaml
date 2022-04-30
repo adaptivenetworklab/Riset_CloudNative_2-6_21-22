@@ -9,3 +9,4 @@ spec:
     storage: 1Gi
   hostPath:
     path: /data/mongo-comments
+  storageClassName: standard
